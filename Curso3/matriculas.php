@@ -31,3 +31,59 @@ var_dump($alunos2022);
 // [...$alunos2021, 'Will' ,...$novosAlunos]
 //so funciona a partir do php 7.4, para arrays com chaves string só funciona a partir do php 8.1
 $alunos2022 = [...$alunos2021, ...$novosAlunos];
+
+//adiciona um elemento (infinitos) no final do array
+//retorna o numero de elementos que o array passou a ter
+array_push($alunos2022, "Will", "alice", 'bob'); 
+var_dump($alunos2022);
+
+//de outra forma
+$alunos2022[] = "Will"; //adiciona um elemento no final do array
+var_dump($alunos2022);
+
+array_unshift($alunos2022, "teste2"); //adiciona um elemento no inicio do array
+var_dump($alunos2022);
+
+//list (tupla)
+$dados = ["João", 10, 8];
+
+list($nome, $nota, $idade) = $dados;
+// [$nome, $nota, $idade] = $dados; // mesmo resultado
+
+//para arrays associativos
+$dados = [
+    "nome" => "João",
+    "nota" => 10,
+    "idade" => 8
+];
+
+//é preciso passar o nome da chave como parametro
+['nome' => $nome, 'nota' => $nota, 'idade' => $idade] = $dados;
+
+$contas = [
+    [
+        'titular' => 'Vinicius Dias',
+        'saldo' => 100
+    ],
+    [
+        'titular' => 'Maria Joaquina',
+        'saldo' => 1000
+    ],
+    [
+        'titular' => 'João da Silva',
+        'saldo' => 800
+    ],
+];
+
+foreach ($contas as ['titular' => $titular, 'saldo' => $saldo]) {
+    echo "$titular possui $saldo reais" . PHP_EOL;
+}
+
+extract($dados); //cria variaveis com o nome das chaves do array e atribui os valores das chaves aos valores das variaveis
+//nao usar em dados nao confiaveis(externos)
+
+var_dump($nome, $nota, $idade);
+
+$dados2 = compact('nome', 'nota', 'idade'); //cria um array associativo com os nomes das variaveis como chaves e os valores das variaveis como valores
+
+var_dump($dados2);
