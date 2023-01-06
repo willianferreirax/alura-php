@@ -1,8 +1,12 @@
 <?php
 
 require_once "src/Conta.php";
+require_once "src/Titular.php";
+require_once "src/CPF.php";
 
-$primeiraConta = new Conta(cpfTitular: "123.456.789-10", nomeTitular: "Willian Ferreira");
+$titular = new Titular(new CPF('123.456.123-12'), "Willian Ferreira");
+
+$primeiraConta = new Conta($titular);
 $primeiraConta->depositar(500);
 $primeiraConta->sacar(100); //isso é ok;
 // $primeiraConta->saldo = -300; //isso não é ok;
