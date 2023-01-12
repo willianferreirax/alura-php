@@ -1,11 +1,13 @@
 <?php
 namespace Alura\Banco\Modelo;
 
-class Endereco{
+final class Endereco{
     private string $cidade;
     private string $bairro;
     private string $rua;
     private string $numero;
+
+    use AcessoPropriedades;
 
     public function __construct(string $cidade, string $bairro, string $rua, string $numero){
         $this->cidade = $cidade;
@@ -32,6 +34,10 @@ class Endereco{
     public function recuperaNumero()
     {
         return $this->numero;
+    }
+
+    public function __toString(): string{
+        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 
 }

@@ -6,8 +6,10 @@ abstract class Pessoa {
     protected string $nome;
     private CPF $cpf;
 
+    use AcessoPropriedades;
+
     public function __construct(string $nome, CPF $cpf){
-        $this->validaNomeTitular($nome);
+        $this->validaNome($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
     }
@@ -22,9 +24,9 @@ abstract class Pessoa {
         return $this->nome;
     }
 
-    protected function validaNomeTitular(string $nomeTitular)
+    final protected function validaNome(string $nome)
     {
-        if (strlen($nomeTitular) < 5) {
+        if (strlen($nome) < 5) {
             echo "Nome precisa ter pelo menos 5 caracteres";
             exit();
         }
