@@ -10,14 +10,12 @@ use Alura\Banco\Servico\ControladorDeBonificacoes;
 $umFuncionario = new Desenvolvedor(
     'Vinicius Dias',
     new CPF('123.456.789-10'),
-    'Desenvolvedor',
     1000
 );
 
 $umaFuncionaria = new Gerente(
     'Patricia',
     new CPF('987.654.321-10'),
-    'Gerente de Vendas',
     3000
 );
 
