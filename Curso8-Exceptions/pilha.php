@@ -3,6 +3,13 @@
 function funcao1()
 {
     echo 'Entrei na função 1' . PHP_EOL;
+    try {
+        $array = new SplFixedArray(2);
+        $array[3] = 'Valor 1';
+    } catch (RunTimeException $e) {
+        echo 'Houve uma exceçao do tipo RunTimeException na funcao1' . PHP_EOL;
+    }
+    // $divisao = intdiv(5, 0); // funcao que trata os numeros somente como inteiro
     funcao2();
     echo 'Saindo da função 1' . PHP_EOL;
 }
