@@ -4,5 +4,5 @@ $arquivosCursos = new SplFileObject('cursos.csv', 'r');
 
 while (!$arquivosCursos->eof()) {
     $linha = $arquivosCursos->fgetcsv();
-    echo utf8_encode($linha[0]) . PHP_EOL;
+    echo mb_convert_encoding(string: $linha[0], to_encoding: "Windows-1252", from_encoding: "UTF-8") . PHP_EOL;
 }
